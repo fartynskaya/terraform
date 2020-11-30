@@ -1,0 +1,10 @@
+#cloud-config
+# Первая строчка обязательна
+# Описание структуры https://cloudinit.readthedocs.io/en/latest/topics/examples.html
+users:
+  - name: ${vm_user_name}
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ${ssh_key}
